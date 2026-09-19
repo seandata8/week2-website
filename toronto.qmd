@@ -1,0 +1,163 @@
+---
+title: "Toronto Open Data plots"
+---
+
+## Raccoon activity by ward
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| output: false
+library(opendatatoronto)
+library(dplyr)
+library(ggplot2)
+library(sf)
+
+raccoons <- search_packages("raccoon") |>
+  list_package_resources() |>
+  get_resource()
+
+wards <- search_packages("city wards") |>
+  list_package_resources() |>
+  filter(name == "City Wards Data - 4326.geojson") |>
+  get_resource()
+
+ward_bins <- raccoons |>
+  summarise(mean_bins = mean(bins_compromised), .by = ward_id)
+```
+
+```{r}
+#| label: fig-raccoon-map
+#| fig-cap: "Mean green bins compromised by raccoons per hour by ward. Data from Open Data Toronto. (not real data -- posted as an April Fool's Joke)"
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5
+#| warning: false
+#| 
+brks <- c(4, 5, 6, 6.8)
+
+wards |>
+  mutate(ward_id = as.integer(AREA_SHORT_CODE)) |>
+  left_join(ward_bins, by = "ward_id") |>
+  ggplot() +
+  geom_sf(fill = "grey95", colour = "grey60") +
+  stat_sf_coordinates(aes(size = mean_bins, colour = mean_bins), alpha = 0.8) +
+  scale_size("Mean bins compromised", range = c(2, 18), breaks = brks) +
+  scale_colour_viridis_c("Mean bins compromised", breaks = brks, guide = "legend") +
+  theme_void()
+```
+
+## Beach water quality over time
+
+```{r}
+#| message: false
+#| warning: false
+#| output: false
+#| echo: false
+library(lubridate)
+
+beaches <- search_packages("Toronto Beaches Water Quality") |>
+  list_package_resources() |>
+  filter(format == "CSV") |>
+  head(1) |>
+  get_resource()
+
+clean_beaches <- beaches |>
+  filter(!is.na(eColi), eColi < 100000) |>
+  mutate(date = as.Date(collectionDate))
+```
+
+```{r}
+#| label: fig-beaches
+#| fig-cap: "Mean annual E. coli by beach, 2007-2026. The dashed line marks Ontario's posting threshold of 100 MPN/100 mL, applied to the geometric mean of five samples rather than to annual means. One implausible reading of 6,191,768 MPN/100 mL has been removed. Data from Open Data Toronto."
+#| echo: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 6
+
+clean_beaches |>
+  mutate(year = year(date)) |>
+  summarise(mean_ecoli = mean(eColi), .by = c(year, beachName)) |>
+  ggplot(aes(x = year, y = mean_ecoli)) +
+  geom_line() +
+  geom_hline(aes(yintercept = 100, linetype = "Ontario threshold"),
+             colour = "red") +
+  scale_linetype_manual(values = c("Ontario threshold" = "dashed")) +
+  facet_wrap(vars(beachName), labeller = label_wrap_gen(20)) +
+  theme_minimal() +
+  labs(x = "Year", y = "Mean E. coli (MPN/100 mL)", linetype = NULL) +
+  theme(legend.position = "inside",
+      legend.position.inside = c(0.85, 0.15))
+```
+
+## TTC subway delays by hour
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| output: false
+
+ttc <- search_packages("TTC Subway Delay Data") |>
+  list_package_resources() |>
+  filter(format == "CSV") |>
+  head(1) |>
+  get_resource()
+```
+
+```{r}
+#| label: fig-ttc
+#| fig-cap: "Subway delays by hour of day and line, January 2025 to July 2026. Zero-minute incidents and the 2 AM to 5 AM closure are excluded. Data from Open Data Toronto."
+#| echo: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 5
+
+ord <- c(6:23, 0:1)
+lab <- c("6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM",
+         "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM",
+         "8 PM", "9 PM", "10 PM", "11 PM", "12 AM", "1 AM")
+
+line_names <- c(
+  YU = "Line 1 Yonge-University",
+  BD = "Line 2 Bloor-Danforth",
+  SHP = "Line 4 Sheppard"
+)
+
+ttc |>
+  filter(Min.Delay > 0, Line %in% c("BD", "YU", "SHP"),
+         !substr(Time, 1, 2) %in% c("02", "03", "04", "05")) |>
+  mutate(
+    hour = factor(as.integer(substr(Time, 1, 2)), levels = ord, labels = lab),
+    Line = factor(line_names[Line], levels = line_names)
+  ) |>
+  summarise(n = n(), .by = c(hour, Line)) |>
+  ggplot(aes(x = hour, y = n, fill = Line)) +
+  geom_col() +
+  theme_minimal() +
+  scale_fill_viridis_d(end = 0.8) +
+  guides(x = guide_axis(angle = 90)) +
+  theme(legend.position = "inside",
+        legend.position.inside = c(0.85, 0.85),
+        legend.background = element_rect(fill = "white", colour = NA)) +
+  labs(x = "Hour of day", y = "Number of delays", fill = "Line")
+```
+```{r}
+#| label: tbl-ttc
+#| tbl-cap: "Delays by line, January 2025 to July 2026."
+#| echo: false
+
+library(tinytable)
+
+ttc |>
+  filter(Min.Delay > 0, Line %in% c("BD", "YU", "SHP")) |>
+  mutate(Line = line_names[Line]) |>
+  summarise(
+    Delays = n(),
+    `Mean minutes` = mean(Min.Delay),
+    `Longest delay` = max(Min.Delay),
+    .by = Line
+  ) |>
+  tt(digits = 3)
+```

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Occupancy – Week 2 Website - Sean Murphy</title>
+<title>Toronto Open Data plots – Week 2 Website - Sean Murphy</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -104,11 +104,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./shelter.html" aria-current="page"> 
+    <a class="nav-link" href="./shelter.html"> 
 <span class="menu-text">Occupancy</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./toronto.html"> 
+    <a class="nav-link active" href="./toronto.html" aria-current="page"> 
 <span class="menu-text">Toronto Data</span></a>
   </li>  
 </ul>
@@ -122,15 +122,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#raccoon-activity-by-ward" id="toc-raccoon-activity-by-ward" class="nav-link active" data-scroll-target="#raccoon-activity-by-ward">Raccoon activity by ward</a></li>
+  <li><a href="#beach-water-quality-over-time" id="toc-beach-water-quality-over-time" class="nav-link" data-scroll-target="#beach-water-quality-over-time">Beach water quality over time</a></li>
+  <li><a href="#ttc-subway-delays-by-hour" id="toc-ttc-subway-delays-by-hour" class="nav-link" data-scroll-target="#ttc-subway-delays-by-hour">TTC subway delays by hour</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Occupancy</h1>
+<h1 class="title">Toronto Open Data plots</h1>
 </div>
 
 
@@ -147,22 +155,135 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="raccoon-activity-by-ward" class="level2">
+<h2 class="anchored" data-anchor-id="raccoon-activity-by-ward">Raccoon activity by ward</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-users" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-raccoon-map" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-users-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="shelter_files/figure-html/fig-users-1.png" class="img-fluid figure-img" width="768">
+<div aria-describedby="fig-raccoon-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="toronto_files/figure-html/fig-raccoon-map-1.png" class="img-fluid figure-img" width="768">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-users-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: People in Toronto’s shelter system each night in 2026, by sector. Data from Open Data Toronto.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-raccoon-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Mean green bins compromised by raccoons per hour by ward. Data from Open Data Toronto. (not real data – posted as an April Fool’s Joke)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="beach-water-quality-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="beach-water-quality-over-time">Beach water quality over time</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-beaches" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-beaches-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="toronto_files/figure-html/fig-beaches-1.png" class="img-fluid figure-img" width="864">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-beaches-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Mean annual E. coli by beach, 2007-2026. The dashed line marks Ontario’s posting threshold of 100 MPN/100 mL, applied to the geometric mean of five samples rather than to annual means. One implausible reading of 6,191,768 MPN/100 mL has been removed. Data from Open Data Toronto.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ttc-subway-delays-by-hour" class="level2">
+<h2 class="anchored" data-anchor-id="ttc-subway-delays-by-hour">TTC subway delays by hour</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ttc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ttc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="toronto_files/figure-html/fig-ttc-1.png" class="img-fluid figure-img" width="864">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ttc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Subway delays by hour of day and line, January 2025 to July 2026. Zero-minute incidents and the 2 AM to 5 AM closure are excluded. Data from Open Data Toronto.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-ttc" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ttc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Delays by line, January 2025 to July 2026.
+</figcaption>
+<div aria-describedby="tbl-ttc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_m7kmrn93o9u47cjat4th = TinyTable.createTableFunctions("tinytable_m7kmrn93o9u47cjat4th");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '3', j: 1 }, { i: '3', j: 2 }, { i: '3', j: 3 }, { i: '3', j: 4 } ], css_id: 'tinytable_css_cj67hf0l87ol4wvs52qf',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_t8hhsixr32dy8dku1ilm',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_m7kmrn93o9u47cjat4th.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_m7kmrn93o9u47cjat4th td.tinytable_css_cj67hf0l87ol4wvs52qf, #tinytable_m7kmrn93o9u47cjat4th th.tinytable_css_cj67hf0l87ol4wvs52qf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_m7kmrn93o9u47cjat4th td.tinytable_css_t8hhsixr32dy8dku1ilm, #tinytable_m7kmrn93o9u47cjat4th th.tinytable_css_t8hhsixr32dy8dku1ilm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_m7kmrn93o9u47cjat4th" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">Line</th>
+                <th scope="col" data-row="0" data-col="2">Delays</th>
+                <th scope="col" data-row="0" data-col="3">Mean minutes</th>
+                <th scope="col" data-row="0" data-col="4">Longest delay</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">Line 2 Bloor-Danforth</td>
+                  <td data-row="1" data-col="2">6239</td>
+                  <td data-row="1" data-col="3">7.95</td>
+                  <td data-row="1" data-col="4">827</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">Line 1 Yonge-University</td>
+                  <td data-row="2" data-col="2">8280</td>
+                  <td data-row="2" data-col="3">7.66</td>
+                  <td data-row="2" data-col="4">900</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">Line 4 Sheppard</td>
+                  <td data-row="3" data-col="2">603</td>
+                  <td data-row="3" data-col="3">8</td>
+                  <td data-row="3" data-col="4">240</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

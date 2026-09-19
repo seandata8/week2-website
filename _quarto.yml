@@ -11,6 +11,8 @@ website:
       - about.qmd
       - href: shelter.qmd
         text: Occupancy
+      - href: toronto.qmd
+        text: Toronto Data
         
 format:
   html:
