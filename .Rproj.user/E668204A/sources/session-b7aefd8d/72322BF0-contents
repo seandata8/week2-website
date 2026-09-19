@@ -1,0 +1,26 @@
+---
+title: "Occupancy"
+---
+
+```{r}
+#| message: false
+#| echo: false
+library(arrow)
+library(dplyr)
+library(ggplot2)
+
+daily <- read_parquet("data/shelter_daily.parquet")
+```
+
+```{r}
+#| label: fig-users
+#| fig-cap: "People in Toronto's shelter system each night in 2026, by sector. Data from Open Data Toronto."
+#| echo: false
+#| fig-width: 8
+#| fig-height: 4
+daily |>
+  ggplot(aes(x = date, y = service_users, colour = sector)) +
+  geom_line() +
+  labs(x = "Date", y = "People", colour = "Sector") +
+  theme_minimal()
+```

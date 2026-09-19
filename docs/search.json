@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "shelter.html",
+    "href": "shelter.html",
+    "title": "Occupancy",
+    "section": "",
+    "text": "Figure 1: People in Toronto’s shelter system each night in 2026, by sector. Data from Open Data Toronto."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Week 2 Website - Sean Murphy",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]

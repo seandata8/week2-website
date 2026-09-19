@@ -1,0 +1,17 @@
+{
+  "hash": "614c9044004ba61db55ac4e4150f0ac2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Occupancy\"\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![People in Toronto's shelter system each night in 2026, by sector. Data from Open Data Toronto.](shelter_files/figure-html/fig-users-1.png){#fig-users width=768}\n:::\n:::\n",
+    "supporting": [
+      "shelter_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
