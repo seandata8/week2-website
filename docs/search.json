@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I’m a student in STA2453 at the University of Toronto. This site was built with Quarto for the week 2 worksheet.\nThe graphs use data from Open Data Toronto."
-  },
-  {
-    "objectID": "shelter.html",
-    "href": "shelter.html",
-    "title": "Occupancy",
-    "section": "",
-    "text": "Figure 1: People in Toronto’s shelter system each night in 2026, by sector. Data from Open Data Toronto."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Week 2 Website - Sean Murphy",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
     "objectID": "toronto.html",
     "href": "toronto.html",
     "title": "Toronto Open Data plots",
@@ -47,5 +26,26 @@
     "title": "Toronto Open Data plots",
     "section": "TTC subway delays by hour",
     "text": "TTC subway delays by hour\n\n\n\n\n\n\n\n\nFigure 3: Subway delays by hour of day and line, January 2025 to July 2026. Zero-minute incidents and the 2 AM to 5 AM closure are excluded. Data from Open Data Toronto.\n\n\n\n\n\n\n\n\n\nTable 1: Delays by line, January 2025 to July 2026.\n\n\n\n\n\n    \n\n    \n    \n    \n      \n        \n        \n              \n                Line\n                Delays\n                Mean minutes\n                Longest delay\n              \n        \n        \n        \n                \n                  Line 2 Bloor-Danforth\n                  6239\n                  7.95\n                  827\n                \n                \n                  Line 1 Yonge-University\n                  8280\n                  7.66\n                  900\n                \n                \n                  Line 4 Sheppard\n                  603\n                  8\n                  240"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Week 2 Website - Sean Murphy",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "shelter.html",
+    "href": "shelter.html",
+    "title": "Occupancy",
+    "section": "",
+    "text": "Figure 1: People in Toronto’s shelter system each night in 2026, by sector. Data from Open Data Toronto."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m a student in STA2453 at the University of Toronto. This site was built with Quarto for the week 2 worksheet.\nThe graphs use data from Open Data Toronto."
   }
 ]
